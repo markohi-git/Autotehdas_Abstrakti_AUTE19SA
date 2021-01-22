@@ -14,13 +14,12 @@ namespace Autotehdas_Abstrakti_AUTE19SA
             autonosat.Add(m);
             m.Asenna();
 
-            for(int i = 0; i < 4; i++) {
+            for(int i = 0; i < 2; i++) {
                 Ovi o = new Ovi();
                 autonosat.Add(o);
                 o.Asenna();
             }
 
-            
             Puskuri etupuskuri = new Puskuri();
             autonosat.Add(etupuskuri);
             etupuskuri.Asenna();
@@ -32,7 +31,12 @@ namespace Autotehdas_Abstrakti_AUTE19SA
         }
         public void LaskePaino()
         {
-            Console.WriteLine("Auton paino on ..");
+            double paino = 0;
+            foreach (Osa osa in autonosat)
+            {
+                paino += osa.Paino;
+            }
+            Console.WriteLine("Auton paino on " + paino + " kg");
         }
     }
 }
